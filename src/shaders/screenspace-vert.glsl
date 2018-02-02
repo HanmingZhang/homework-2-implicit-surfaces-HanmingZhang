@@ -8,3 +8,4 @@ void main() {
 	// TODO: Pass relevant info to fragment
 	gl_Position = vs_Pos;
 }
+
