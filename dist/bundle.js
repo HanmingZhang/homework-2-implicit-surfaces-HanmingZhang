@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -145,6 +145,72 @@ function equals(a, b) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_vec2__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec3__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec4__ = __webpack_require__(7);
+/* unused harmony reexport glMatrix */
+/* unused harmony reexport mat2 */
+/* unused harmony reexport mat2d */
+/* unused harmony reexport mat3 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4__; });
+/* unused harmony reexport quat */
+/* unused harmony reexport vec2 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec3__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec4__; });
+/**
+ * @fileoverview gl-matrix - High performance matrix and vector operations
+ * @author Brandon Jones
+ * @author Colin MacKenzie IV
+ * @version 2.4.0
+ */
+
+/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. */
+// END HEADER
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
 var gl;
@@ -2615,6 +2681,66 @@ const forEach = (function() {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(2);
+
+class Drawable {
+    constructor() {
+        this.count = 0;
+        this.idxBound = false;
+        this.posBound = false;
+        this.norBound = false;
+    }
+    destory() {
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufIdx);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufPos);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufNor);
+    }
+    generateIdx() {
+        this.idxBound = true;
+        this.bufIdx = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createBuffer();
+    }
+    generatePos() {
+        this.posBound = true;
+        this.bufPos = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createBuffer();
+    }
+    generateNor() {
+        this.norBound = true;
+        this.bufNor = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createBuffer();
+    }
+    bindIdx() {
+        if (this.idxBound) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.bufIdx);
+        }
+        return this.idxBound;
+    }
+    bindPos() {
+        if (this.posBound) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].ARRAY_BUFFER, this.bufPos);
+        }
+        return this.posBound;
+    }
+    bindNor() {
+        if (this.norBound) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].ARRAY_BUFFER, this.bufNor);
+        }
+        return this.norBound;
+    }
+    elemCount() {
+        return this.count;
+    }
+    drawMode() {
+        return __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TRIANGLES;
+    }
+}
+;
+/* harmony default export */ __webpack_exports__["a"] = (Drawable);
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2622,8 +2748,13 @@ const forEach = (function() {
 
 module.exports = createFilteredVector
 
+<<<<<<< HEAD
 var cubicHermite = __webpack_require__(36)
 var bsearch = __webpack_require__(9)
+=======
+var cubicHermite = __webpack_require__(38)
+var bsearch = __webpack_require__(10)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 function clamp(lo, hi, x) {
   return Math.min(hi, Math.max(lo, x))
@@ -2912,7 +3043,7 @@ function createFilteredVector(initState, initVelocity, initTime) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2979,7 +3110,7 @@ module.exports = {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = cross;
@@ -3003,7 +3134,7 @@ function cross(out, a, b) {
 }
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = dot;
@@ -3020,10 +3151,10 @@ function dot(a, b) {
 }
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(13);
+var identity = __webpack_require__(14);
 
 module.exports = lookAt;
 
@@ -3115,7 +3246,7 @@ function lookAt(out, eye, center, up) {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = identity;
@@ -3147,7 +3278,7 @@ function identity(out) {
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = translate;
@@ -3190,7 +3321,7 @@ function translate(out, a, v) {
 };
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = create;
@@ -3222,7 +3353,7 @@ function create() {
 };
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = scale;
@@ -3258,7 +3389,7 @@ function scale(out, a, v) {
 };
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = determinant;
@@ -3293,20 +3424,36 @@ function determinant(a) {
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(24);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(25);
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_stats_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_dat_gui__);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geometry_Square__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Camera__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__globals__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__ = __webpack_require__(65);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geometry_Icosphere__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__geometry_Square__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rendering_gl_OpenGLRenderer__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Camera__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__globals__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__ = __webpack_require__(65);
+
+
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 
 
@@ -3316,8 +3463,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // Define an object with application parameters and button callbacks
 // This will be referred to by dat.GUI's functions that add GUI elements.
+<<<<<<< HEAD
 const LERPFUN = 'LerpFun';
 const CHESS = 'Chess';
+=======
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 const controls = {
     // TODO: add any controls you want
     AO: true,
@@ -3326,11 +3476,22 @@ const controls = {
     BarrelDistortion: false,
     SceneSelect: LERPFUN,
 };
+<<<<<<< HEAD
 let screenQuad;
 let time;
 let lerpStage;
 let lerpValue;
 let sceneSelect;
+=======
+let icosphere;
+let square;
+function loadScene() {
+    icosphere = new __WEBPACK_IMPORTED_MODULE_3__geometry_Icosphere__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0), 1, controls.tesselations);
+    icosphere.create();
+    square = new __WEBPACK_IMPORTED_MODULE_4__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
+    square.create();
+}
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 function main() {
     // Initial display for framerate
     const stats = __WEBPACK_IMPORTED_MODULE_1_stats_js__();
@@ -3354,6 +3515,7 @@ function main() {
     }
     // `setGL` is a function imported above which sets the value of `gl` in the `globals.ts` module.
     // Later, we can import `gl` from `globals.ts` to access it
+<<<<<<< HEAD
     Object(__WEBPACK_IMPORTED_MODULE_5__globals__["b" /* setGL */])(gl);
     screenQuad = new __WEBPACK_IMPORTED_MODULE_3__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
     screenQuad.create();
@@ -3363,6 +3525,18 @@ function main() {
     const raymarchShader = new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["b" /* default */]([
         new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(66)),
         new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(67)),
+=======
+    Object(__WEBPACK_IMPORTED_MODULE_7__globals__["b" /* setGL */])(gl);
+    // Initial call to load scene
+    loadScene();
+    const camera = new __WEBPACK_IMPORTED_MODULE_6__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 5), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
+    const renderer = new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_OpenGLRenderer__["a" /* default */](canvas);
+    renderer.setClearColor(0.2, 0.2, 0.2, 1);
+    gl.enable(gl.DEPTH_TEST);
+    const lambert = new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["b" /* default */]([
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(66)),
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(67)),
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
     ]);
     function setAO() {
         raymarchShader.setAO(controls.AO);
@@ -3425,6 +3599,7 @@ function main() {
         camera.update();
         stats.begin();
         gl.viewport(0, 0, window.innerWidth, window.innerHeight);
+<<<<<<< HEAD
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         currentTime = time;
         // TODO: get / calculate relevant uniforms to send to shader here
@@ -3440,6 +3615,13 @@ function main() {
         raymarchShader.draw(screenQuad);
         lastTime = currentTime;
         // TODO: more shaders to layer / process the first one? (either via framebuffers or blending)
+=======
+        renderer.clear();
+        renderer.render(camera, lambert, [
+            // icosphere,
+            square,
+        ]);
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
         stats.end();
         // Tell the browser to call `tick` again whenever it renders a new frame
         requestAnimationFrame(tick);
@@ -3466,7 +3648,7 @@ main();
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3935,7 +4117,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4436,7 +4618,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6174,7 +6356,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6864,7 +7046,7 @@ const setAxes = (function() {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7506,7 +7688,7 @@ const forEach = (function() {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 // stats.js - http://github.com/mrdoob/stats.js
@@ -7518,14 +7700,14 @@ a+"px",m=b,r=0);return b},update:function(){l=this.end()}}};"object"===typeof mo
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(26)
-module.exports.color = __webpack_require__(27)
+module.exports = __webpack_require__(27)
+module.exports.color = __webpack_require__(28)
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /**
@@ -11190,7 +11372,7 @@ dat.dom.dom,
 dat.utils.common);
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 /**
@@ -11950,13 +12132,19 @@ dat.color.toString,
 dat.utils.common);
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(1);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(2);
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 
 
@@ -11994,10 +12182,11 @@ class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /*
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
 
 class Drawable {
@@ -12044,21 +12233,99 @@ class Drawable {
     }
     elemCount() {
         return this.count;
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(2);
+
+
+
+class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /* default */] {
+    constructor(center) {
+        super(); // Call the constructor of the super class. This is required.
+        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
     }
-    drawMode() {
-        return __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TRIANGLES;
+    create() {
+        this.indices = new Uint32Array([0, 1, 2,
+            0, 2, 3]);
+        this.normals = new Float32Array([0, 0, 1, 0,
+            0, 0, 1, 0,
+            0, 0, 1, 0,
+            0, 0, 1, 0]);
+        this.positions = new Float32Array([-1, -1, 0, 1,
+            1, -1, 0, 1,
+            1, 1, 0, 1,
+            -1, 1, 0, 1]);
+        this.generateIdx();
+        this.generatePos();
+        this.generateNor();
+        this.count = this.indices.length;
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.bufIdx);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.indices, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.bufNor);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.normals, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.bufPos);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.positions, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
+        console.log(`Created square`);
     }
 }
 ;
-/* harmony default export */ __webpack_exports__["a"] = (Drawable);
+/* harmony default export */ __webpack_exports__["a"] = (Square);
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls__ = __webpack_require__(31);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__globals__ = __webpack_require__(2);
+
+
+// In this file, `gl` is accessible because it is imported above
+class OpenGLRenderer {
+    constructor(canvas) {
+        this.canvas = canvas;
+    }
+    setClearColor(r, g, b, a) {
+        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].clearColor(r, g, b, a);
+    }
+    setSize(width, height) {
+        this.canvas.width = width;
+        this.canvas.height = height;
+    }
+    clear() {
+        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].clear(__WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].COLOR_BUFFER_BIT | __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].DEPTH_BUFFER_BIT);
+    }
+    render(camera, prog, drawables) {
+        let model = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let viewProj = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let color = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(1, 0, 0, 1);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].identity(model);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
+        prog.setModelMatrix(model);
+        prog.setViewProjMatrix(viewProj);
+        prog.setGeometryColor(color);
+        for (let drawable of drawables) {
+            prog.draw(drawable);
+        }
+    }
+}
+;
+/* harmony default export */ __webpack_exports__["a"] = (OpenGLRenderer);
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls__ = __webpack_require__(33);
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_3d_view_controls__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gl_matrix__ = __webpack_require__(3);
 
@@ -12099,7 +12366,11 @@ class Camera {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 31 */
+=======
+/* 33 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12107,12 +12378,20 @@ class Camera {
 
 module.exports = createCamera
 
+<<<<<<< HEAD
 var now         = __webpack_require__(32)
 var createView  = __webpack_require__(34)
 var mouseChange = __webpack_require__(57)
 var mouseWheel  = __webpack_require__(59)
 var mouseOffset = __webpack_require__(62)
 var hasPassive  = __webpack_require__(63)
+=======
+var now         = __webpack_require__(34)
+var createView  = __webpack_require__(36)
+var mouseChange = __webpack_require__(59)
+var mouseWheel  = __webpack_require__(61)
+var mouseOffset = __webpack_require__(64)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 function createCamera(element, options) {
   element = element || document.body
@@ -12342,7 +12621,11 @@ function createCamera(element, options) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 32 */
+=======
+/* 34 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports =
@@ -12353,10 +12636,17 @@ function createCamera(element, options) {
     return +new Date
   }
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(33)))
 
 /***/ }),
 /* 33 */
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
+
+/***/ }),
+/* 35 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 var g;
@@ -12383,7 +12673,11 @@ module.exports = g;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 34 */
+=======
+/* 36 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12391,9 +12685,15 @@ module.exports = g;
 
 module.exports = createViewController
 
+<<<<<<< HEAD
 var createTurntable = __webpack_require__(35)
 var createOrbit     = __webpack_require__(38)
 var createMatrix    = __webpack_require__(41)
+=======
+var createTurntable = __webpack_require__(37)
+var createOrbit     = __webpack_require__(40)
+var createMatrix    = __webpack_require__(43)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 function ViewController(controllers, mode) {
   this._controllerNames = Object.keys(controllers)
@@ -12511,7 +12811,11 @@ function createViewController(options) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 35 */
+=======
+/* 37 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12519,12 +12823,19 @@ function createViewController(options) {
 
 module.exports = createTurntableController
 
+<<<<<<< HEAD
 var filterVector = __webpack_require__(8)
 var invert44     = __webpack_require__(2)
 var rotateM      = __webpack_require__(37)
 var cross        = __webpack_require__(10)
+=======
+var filterVector = __webpack_require__(9)
+var invert44     = __webpack_require__(3)
+var rotateM      = __webpack_require__(39)
+var cross        = __webpack_require__(11)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 var normalize3   = __webpack_require__(4)
-var dot3         = __webpack_require__(11)
+var dot3         = __webpack_require__(12)
 
 function len3(x, y, z) {
   return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2))
@@ -13089,7 +13400,11 @@ function createTurntableController(options) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 36 */
+=======
+/* 38 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13134,7 +13449,11 @@ module.exports = cubicHermite
 module.exports.derivative = dcubicHermite
 
 /***/ }),
+<<<<<<< HEAD
 /* 37 */
+=======
+/* 39 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = rotate;
@@ -13203,7 +13522,11 @@ function rotate(out, a, rad, axis) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 38 */
+=======
+/* 40 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13211,11 +13534,19 @@ function rotate(out, a, rad, axis) {
 
 module.exports = createOrbitController
 
+<<<<<<< HEAD
 var filterVector  = __webpack_require__(8)
 var lookAt        = __webpack_require__(12)
 var mat4FromQuat  = __webpack_require__(39)
 var invert44      = __webpack_require__(2)
 var quatFromFrame = __webpack_require__(40)
+=======
+var filterVector  = __webpack_require__(9)
+var lookAt        = __webpack_require__(13)
+var mat4FromQuat  = __webpack_require__(41)
+var invert44      = __webpack_require__(3)
+var quatFromFrame = __webpack_require__(42)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 function len3(x,y,z) {
   return Math.sqrt(Math.pow(x,2) + Math.pow(y,2) + Math.pow(z,2))
@@ -13602,7 +13933,11 @@ function createOrbitController(options) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 39 */
+=======
+/* 41 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = fromQuat;
@@ -13654,7 +13989,11 @@ function fromQuat(out, q) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 40 */
+=======
+/* 42 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13701,12 +14040,17 @@ function quatFromFrame(
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 41 */
+=======
+/* 43 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var bsearch   = __webpack_require__(9)
 var m4interp  = __webpack_require__(42)
 var invert44  = __webpack_require__(2)
@@ -13716,6 +14060,17 @@ var rotateZ   = __webpack_require__(56)
 var lookAt    = __webpack_require__(12)
 var translate = __webpack_require__(14)
 var scale     = __webpack_require__(16)
+=======
+var bsearch   = __webpack_require__(10)
+var m4interp  = __webpack_require__(44)
+var invert44  = __webpack_require__(3)
+var rotateX   = __webpack_require__(56)
+var rotateY   = __webpack_require__(57)
+var rotateZ   = __webpack_require__(58)
+var lookAt    = __webpack_require__(13)
+var translate = __webpack_require__(15)
+var scale     = __webpack_require__(17)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 var normalize = __webpack_require__(4)
 
 var DEFAULT_CENTER = [0,0,0]
@@ -13906,6 +14261,7 @@ function createMatrixCameraController(options) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13915,6 +14271,17 @@ var recompose = __webpack_require__(44)
 var decompose = __webpack_require__(47)
 var determinant = __webpack_require__(17)
 var slerp = __webpack_require__(52)
+=======
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var lerp = __webpack_require__(45)
+
+var recompose = __webpack_require__(46)
+var decompose = __webpack_require__(49)
+var determinant = __webpack_require__(18)
+var slerp = __webpack_require__(54)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 var state0 = state()
 var state1 = state()
@@ -13963,7 +14330,11 @@ function vec4() {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 45 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = lerp;
@@ -13988,7 +14359,11 @@ function lerp(out, a, b, t) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 44 */
+=======
+/* 46 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14003,12 +14378,21 @@ From: http://www.w3.org/TR/css3-transforms/#recomposing-to-a-3d-matrix
 */
 
 var mat4 = {
+<<<<<<< HEAD
     identity: __webpack_require__(13),
     translate: __webpack_require__(14),
     multiply: __webpack_require__(45),
     create: __webpack_require__(15),
     scale: __webpack_require__(16),
     fromRotationTranslation: __webpack_require__(46)
+=======
+    identity: __webpack_require__(14),
+    translate: __webpack_require__(15),
+    multiply: __webpack_require__(47),
+    create: __webpack_require__(16),
+    scale: __webpack_require__(17),
+    fromRotationTranslation: __webpack_require__(48)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 }
 
 var rotationMatrix = mat4.create()
@@ -14053,7 +14437,11 @@ module.exports = function recomposeMat4(matrix, translation, scale, skew, perspe
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 45 */
+=======
+/* 47 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = multiply;
@@ -14100,7 +14488,11 @@ function multiply(out, a, b) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 46 */
+=======
+/* 48 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = fromRotationTranslation;
@@ -14158,7 +14550,11 @@ function fromRotationTranslation(out, q, v) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 47 */
+=======
+/* 49 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 /*jshint unused:true*/
@@ -14178,6 +14574,7 @@ https://github.com/ChromiumWebApps/chromium/blob/master/ui/gfx/transform_util.cc
 http://www.w3.org/TR/css3-transforms/#decomposing-a-3d-matrix
 */
 
+<<<<<<< HEAD
 var normalize = __webpack_require__(48)
 
 var create = __webpack_require__(15)
@@ -14187,9 +14584,20 @@ var invert = __webpack_require__(2)
 var transpose = __webpack_require__(50)
 var vec3 = {
     length: __webpack_require__(51),
+=======
+var normalize = __webpack_require__(50)
+
+var create = __webpack_require__(16)
+var clone = __webpack_require__(51)
+var determinant = __webpack_require__(18)
+var invert = __webpack_require__(3)
+var transpose = __webpack_require__(52)
+var vec3 = {
+    length: __webpack_require__(53),
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
     normalize: __webpack_require__(4),
-    dot: __webpack_require__(11),
-    cross: __webpack_require__(10)
+    dot: __webpack_require__(12),
+    cross: __webpack_require__(11)
 }
 
 var tmp = create()
@@ -14342,7 +14750,11 @@ function combine(out, a, b, scale1, scale2) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 48 */
+=======
+/* 50 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = function normalize(out, mat) {
@@ -14357,7 +14769,11 @@ module.exports = function normalize(out, mat) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 49 */
+=======
+/* 51 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = clone;
@@ -14390,7 +14806,11 @@ function clone(a) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 50 */
+=======
+/* 52 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = transpose;
@@ -14444,7 +14864,11 @@ function transpose(out, a) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 51 */
+=======
+/* 53 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = length;
@@ -14463,6 +14887,7 @@ function length(a) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14470,6 +14895,15 @@ module.exports = __webpack_require__(53)
 
 /***/ }),
 /* 53 */
+=======
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(55)
+
+/***/ }),
+/* 55 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = slerp
@@ -14526,7 +14960,11 @@ function slerp (out, a, b, t) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 54 */
+=======
+/* 56 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = rotateX;
@@ -14575,7 +15013,11 @@ function rotateX(out, a, rad) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 55 */
+=======
+/* 57 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = rotateY;
@@ -14624,7 +15066,11 @@ function rotateY(out, a, rad) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 56 */
+=======
+/* 58 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = rotateZ;
@@ -14673,7 +15119,11 @@ function rotateZ(out, a, rad) {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 57 */
+=======
+/* 59 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14681,7 +15131,11 @@ function rotateZ(out, a, rad) {
 
 module.exports = mouseListen
 
+<<<<<<< HEAD
 var mouse = __webpack_require__(58)
+=======
+var mouse = __webpack_require__(60)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 function mouseListen (element, callback) {
   if (!callback) {
@@ -14885,7 +15339,11 @@ function mouseListen (element, callback) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 58 */
+=======
+/* 60 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14952,13 +15410,21 @@ exports.y = mouseRelativeY
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 59 */
+=======
+/* 61 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var toPX = __webpack_require__(60)
+=======
+var toPX = __webpack_require__(62)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 module.exports = mouseWheelListen
 
@@ -14999,13 +15465,21 @@ function mouseWheelListen(element, callback, noScroll) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 60 */
+=======
+/* 62 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+<<<<<<< HEAD
 var parseUnit = __webpack_require__(61)
+=======
+var parseUnit = __webpack_require__(63)
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 
 module.exports = toPX
 
@@ -15065,7 +15539,11 @@ function toPX(str, element) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 61 */
+=======
+/* 63 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 module.exports = function parseUnit(str, out) {
@@ -15080,7 +15558,11 @@ module.exports = function parseUnit(str, out) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 62 */
+=======
+/* 64 */
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /***/ (function(module, exports) {
 
 var rootPosition = { left: 0, top: 0 }
@@ -15111,6 +15593,7 @@ function getBoundingClientOffset (element) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15148,6 +15631,8 @@ module.exports = isBrowser && detect()
 module.exports = true;
 
 /***/ }),
+=======
+>>>>>>> 482379df648d9204aa26b774e3046f0be68670b0
 /* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
