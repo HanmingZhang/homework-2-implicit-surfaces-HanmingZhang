@@ -9,6 +9,8 @@ Lerp Fun Scene | Chess Scene
 
 ## Online Demo
 
+- [Demo Link](https://hanmingzhang.github.io/homework-2-implicit-surfaces-HanmingZhang/)
+
 
 ## Features
 - Lerp animation between different implicit surfaces
